@@ -1,0 +1,120 @@
+.navbar {
+  background: $tertiary;
+  top: 0;
+  right: 0;
+  height: 80px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  &__nav {
+    width: 100%;
+    max-width: $xxl;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    p {
+      margin: 0;
+      text-transform: uppercase;
+      letter-spacing: 20%;
+      font-size: 20px;
+      font-weight: 600;
+      color: $white;
+    }
+    button {
+      @include button;
+      margin: 0;
+      background: $primary;
+      color: $white;
+    }
+    .icon {
+      @include icon;
+    }
+  }
+}
+h2 {
+  width: 100%;
+  text-align: center;
+  padding-top: 100px;
+  margin: 0;
+  background: $tertiary;
+  color: $white;
+}
+
+.todo {
+  background: $tertiary;
+  color: $white;
+  overflow: auto;
+  padding-top: 50px;
+  justify-content: flex-start;
+  &__list {
+    max-height: $sm;
+    overflow-y: auto;
+    width: 80%;
+    max-width: $sm;
+    background: $white;
+    border-radius: 10px;
+    padding: 20px;
+    .header,
+    .add {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    button {
+      @include button;
+      background: $primary;
+      color: white;
+      margin: 0;
+      min-width: 100px;
+    }
+    .input-group {
+      @include input-group;
+      .icon {
+        @include icon;
+        color: $tertiary;
+        opacity: 0.7;
+      }
+      input {
+        @include input;
+        width: 70%;
+      }
+    }
+    ul {
+      padding: 0;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      justify-items: center;
+      li {
+        color: $primary;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px 13px;
+        margin: 0 0 10px;
+        border: 1px solid $primary;
+        border-radius: 10px;
+        p {
+          margin: 0;
+        }
+        .icon {
+          width: 20px;
+          height: 20px;
+          cursor: pointer;
+          &:nth-child(1) {
+            margin-right: 20px;
+          }
+          &:nth-child(2) {
+            margin-right: 10px;
+            color: $secondary;
+            opacity: 0.9;
+          }
+        }
+      }
+    }
+  }
+}
