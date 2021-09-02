@@ -13,6 +13,7 @@ import 'react-toastify/dist/ReactToastify.min.css'
 export function Todo() {
   const methods = useForm({ mode: 'all', reValidateMode: 'onChange' })
   //Need state to toggle Edit and Add Forms
+  const [query, setQuery] = useState('')
   const [editTodo, setEdit] = useState(false)
   const [newTodo, setNew] = useState(false)
   //Need State to keep track of todos, using lazy initial state
@@ -23,9 +24,18 @@ export function Todo() {
     }
     return []
   })
-
   // We need to get the user to save id to the todo list, that way we can associate the list to the user.
   const { authUser } = useUser()
+
+  //Used to filter todos
+  function filter(rows) {
+    if (query === '') {
+      return todos
+    }
+    return rows.filter(
+      (row) => row.title.toLowerCase().indexOf(query.toLocaleLowerCase()) > -1
+    )
+  }
 
   const addTodo = ({ add }) => {
     //We don't want to submit an empty string
@@ -34,6 +44,7 @@ export function Todo() {
       setTodos([
         //Copying existing todos.
         ...todos,
+        //Saving new Todo
         {
           id: v4(),
           title: add.trim(),
@@ -72,17 +83,24 @@ export function Todo() {
     localStorage.setItem('todos', JSON.stringify(todos))
   }, [todos])
 
+
+
   return (
     <>
       <Navigation />
       <h2>My To-Do List</h2>
+      {/* Provider allows for nested components access to React Hook Form methods  */}
       <FormProvider {...methods}>
         <div className='container todo'>
           <div className='todo__list'>
             <div className='header'>
               <div className='input-group'>
                 <FaSearch className='icon' />
-                <input type='text' placeholder='Search' />
+                <input
+                  type='text'
+                  placeholder='Search'
+                  onChange={(e) => setQuery(e.target.value)}
+                />
               </div>
               <div>
                 <button onClick={() => setNew(!newTodo)}>New Todo</button>
@@ -93,7 +111,7 @@ export function Todo() {
             )}
             <div className='items'>
               <ul>
-                {todos.map((todo) => (
+                {filter(todos).map((todo) => (
                   <TodoCard
                     key={todo.id}
                     todo={todo}
