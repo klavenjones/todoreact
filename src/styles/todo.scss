@@ -1,12 +1,11 @@
 .navbar {
-  background: $tertiary;
+  background: transparent;
   top: 0;
   right: 0;
   height: 80px;
   width: 100%;
   display: flex;
   justify-content: center;
-
   &__nav {
     width: 100%;
     max-width: $xxl;
@@ -25,25 +24,29 @@
     button {
       @include button;
       margin: 0;
-      background: $primary;
+      background: $tertiary;
       color: $white;
     }
+
     .icon {
       @include icon;
     }
   }
 }
+
 h2 {
   width: 100%;
   text-align: center;
   padding-top: 100px;
   margin: 0;
-  background: $tertiary;
+  text-transform: uppercase;
+  background: transparent;
   color: $white;
+  text-shadow: 0 10px 15px -5px rgba(0, 0, 0, 0.4);
 }
 
 .todo {
-  background: $tertiary;
+  background: transparent;
   color: $white;
   overflow: auto;
   padding-top: 50px;
@@ -56,23 +59,32 @@ h2 {
     background: $white;
     border-radius: 10px;
     padding: 20px;
+    box-shadow: 0 10px 15px -5px rgba(0, 0, 0, 0.4);
     .header,
     .add {
       width: 100%;
       display: flex;
-      justify-content: space-between;
       align-items: center;
       margin-bottom: 20px;
+      span {
+        color: $error;
+        display: inline-block;
+        margin-right: auto;
+      }
     }
     button {
       @include button;
       background: $primary;
       color: white;
-      margin: 0;
+      margin: 0 0px 0 25px;
       min-width: 100px;
+      flex-shrink: 0;
     }
+
     .input-group {
       @include input-group;
+      flex-grow: 1;
+
       .icon {
         @include icon;
         color: $tertiary;
@@ -80,7 +92,15 @@ h2 {
       }
       input {
         @include input;
-        width: 70%;
+        width: 100%;
+      }
+      &--error {
+        input {
+          border-color: $error;
+        }
+        .icon {
+          color: $error;
+        }
       }
     }
     ul {

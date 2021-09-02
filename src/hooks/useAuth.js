@@ -27,7 +27,7 @@ export function useAuth() {
   const logout = async () => {
     setAuthUser(null)
     setAuthenticated(false)
-    localStorage.clear()
+    localStorage.removeItem('user')
   }
 
   const login = async (email, password) => {
