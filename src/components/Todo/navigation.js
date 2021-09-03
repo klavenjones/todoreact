@@ -1,6 +1,6 @@
 import { useUser } from '../../context/useUser'
 
-export default function Navigation() {
+export function Navigation() {
   const { logout, authUser } = useUser()
 
   return (

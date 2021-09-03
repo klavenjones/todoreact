@@ -1,6 +1,5 @@
 import { useState } from 'react'
-import { TodoItem } from './todoItem'
-import { EditTodoForm } from './editTodoForm'
+import { EditTodoForm, TodoItem } from './'
 
 export function TodoCard({ deleteTodo, saveTodo, todo }) {
   //Need state to toggle Edit Form
@@ -9,8 +8,8 @@ export function TodoCard({ deleteTodo, saveTodo, todo }) {
   const toggleEdit = (todo) => {
     setEdit(true)
   }
-
-  return (
+  
+   return (
     <>
       {editTodo ? (
         <EditTodoForm saveTodo={saveTodo} todo={todo} toggleEdit={setEdit} />
