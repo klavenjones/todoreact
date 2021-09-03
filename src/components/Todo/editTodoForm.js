@@ -15,6 +15,7 @@ export function EditTodoForm({ saveTodo, todo, toggleEdit, current }) {
   //This will set the current value of the form we would like to edit
   useEffect(() => {
     setValue('edit', todo.title)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   useEffect(() => {
@@ -42,7 +43,7 @@ export function EditTodoForm({ saveTodo, todo, toggleEdit, current }) {
       })
       clearErrors('edit')
     }
-     // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [errors.edit])
 
   return (
