@@ -44,10 +44,14 @@ $xxxl: 1800px;
   cursor: pointer;
   transition: all 0.3s ease-in;
   &:hover {
-    opacity: 80%;
+    background: $hover;
   }
   &.cancel {
     background: $secondary;
+    transition: all 0.3s ease-in;
+    &:hover {
+      background: $hover;
+    }
   }
 }
 
