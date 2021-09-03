@@ -42,6 +42,7 @@ export function EditTodoForm({ saveTodo, todo, toggleEdit, current }) {
       })
       clearErrors('edit')
     }
+     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [errors.edit])
 
   return (

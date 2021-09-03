@@ -37,6 +37,7 @@ export function AddTodoForm({ addTodo, toggleNew }) {
       })
       clearErrors('add')
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [errors.add])
 
   return (
