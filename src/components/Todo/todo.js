@@ -53,6 +53,7 @@ export function Todo() {
     }
     //Resetting React Hook Form
     methods.reset({ add: '' })
+    setNew(false)
   }
 
   const toggleEdit = ({ todo }) => {
