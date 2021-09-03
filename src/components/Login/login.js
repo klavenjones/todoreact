@@ -45,7 +45,6 @@ export function Login() {
     } else {
       setDisabled(false)
     }
-    console.log(isValid)
   }, [isValid])
 
   return (

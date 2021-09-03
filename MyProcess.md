@@ -9,7 +9,7 @@ After work, on Tuesday, I began the project. I decided to style in Sass cause it
 
 # The last 3 Hours: TODO Page and Refactoring
 
-The next night, I created the TODO app functionality, saved the Todos to localStorage, and used uuid to create a unique ID for each todo. I also saved the userId of the user logged in each time I created a todo to associate that user with them. I used react-toast for the todo validation and react-hook-forms to help me with handling user input. I also used it with the Login screen. After completing the app, I did some refactoring and cleaning up, a little bit of testing, and deployed the application.
+The next night, I created the TODO app functionality, saved the Todos to localStorage, and used uuid to create a unique ID for each todo. I used react-toast for the todo validation and react-hook-forms to help me with handling user input. I also used it with the Login screen. After completing the app, I did some refactoring and cleaning up, a little bit of testing, and deployed the application.
 
 
 

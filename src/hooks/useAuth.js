@@ -12,7 +12,6 @@ const formatUser = (user) => ({
 export function useAuth() {
   const [authUser, setAuthUser] = useState(null)
   const [isAuthenticated, setAuthenticated] = useState(false)
-  const [loading, setLoading] = useState(true)
 
   const setUser = async (user) => {
     //Format User
@@ -56,7 +55,6 @@ export function useAuth() {
     login,
     logout,
     authUser,
-    isAuthenticated,
-    loading
+    isAuthenticated
   }
 }

@@ -5,7 +5,6 @@ import { ToastContainer } from 'react-toastify'
 import { useUser } from '../../context/useUser'
 import { v4 } from 'uuid'
 
-
 import { TodoCard, AddTodoForm, Navigation } from './'
 
 import 'react-toastify/dist/ReactToastify.min.css'
@@ -16,6 +15,8 @@ export function Todo() {
   const [query, setQuery] = useState('')
   const [editTodo, setEdit] = useState(false)
   const [newTodo, setNew] = useState(false)
+  // We need to get the user to save id to the todo list, that way we can associate the list to the user.
+  const { authUser } = useUser()
   //Need State to keep track of todos, using lazy initial state
   const [todos, setTodos] = useState(() => {
     const saveTodos = localStorage.getItem('todos')
@@ -24,8 +25,6 @@ export function Todo() {
     }
     return []
   })
-  // We need to get the user to save id to the todo list, that way we can associate the list to the user.
-  const { authUser } = useUser()
 
   //Used to filter todos
   function filter(rows) {
@@ -82,8 +81,6 @@ export function Todo() {
   useEffect(() => {
     localStorage.setItem('todos', JSON.stringify(todos))
   }, [todos])
-
-
 
   return (
     <>
